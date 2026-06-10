@@ -45,7 +45,7 @@ module.exports = {
         const timeRange = `${breakTime}-${endTime}`;
 
         const replyMsg = `📊 **Your Break Status**\n` +
-                         `👤 **User:** <@${discordId}>\n` +
+                         `👤 **Employee:** <@${discordId}>\n` +
                          `⏱️ **Daily Quota:** ${employee.quota_minutes} minutes\n` +
                          `⏰ **Scheduled Time:** ${timeRange}\n` +
                          `📌 **Today's Status:** ${statusText}`;
