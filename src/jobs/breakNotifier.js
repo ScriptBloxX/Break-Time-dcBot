@@ -31,7 +31,7 @@ async function checkEndingBreaks(client, now) {
                         const user = await client.users.fetch(log.discord_id);
                         const guild = await client.guilds.fetch(log.guild_id);
                         const serverName = guild ? guild.name : 'Your Server';
-                        await user.send(`🚨 **Break time is over!**\nCompany: **${serverName}**\nPlease return to your work immediately. Let's get it!`);
+                        await user.send(`🚨 **Break time is over!**\nCompany: **${serverName}**\nPlease return to your work immediately. Let's get it!\n---------------------------------------`);
                     } catch (err) {
                         console.log(`[Warning] Can't send DM to ${log.discord_id}`);
                     }
@@ -76,7 +76,7 @@ async function checkStartingBreaks(client, now, today, currentTime) {
                         const user = await client.users.fetch(emp.discord_id);
                         const guild = await client.guilds.fetch(emp.guild_id);
                         const serverName = guild ? guild.name : 'Your Server';
-                        await user.send(`☕ **Time for a break!**\nCompany: **${serverName}**\nYou have ${emp.quota_minutes} minutes. Enjoy your rest!`);
+                        await user.send(`☕ **Time for a break!**\nCompany: **${serverName}**\nYou have ${emp.quota_minutes} minutes. Enjoy your rest!\n---------------------------------------`);
                     } catch (err) {
                         console.log(`[Warning] Can't send DM to ${emp.discord_id}`);
                     }
