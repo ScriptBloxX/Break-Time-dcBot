@@ -1,0 +1,20 @@
+{
+  "name": "break-time-dcbot",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ScriptBloxX/Break-Time-dcBot#readme",
+  "bugs": {
+    "url": "https://github.com/ScriptBloxX/Break-Time-dcBot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScriptBloxX/Break-Time-dcBot.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
