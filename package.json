@@ -17,7 +17,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "deploy-cm" : "node deploy-commands.js",
+    "deploy-gbcm" : "node test/deploy-commands.js",
+    "deploy-gcm" : "node test/deploy-guild.js",
     "clear-gcm" : "node test/clear-guild.js"
   },
   "dependencies": {
