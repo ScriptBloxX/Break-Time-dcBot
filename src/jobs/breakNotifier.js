@@ -75,8 +75,14 @@ async function checkStartingBreaks(client, now, today, currentTime) {
                     try {
                         const user = await client.users.fetch(emp.discord_id);
                         const guild = await client.guilds.fetch(emp.guild_id);
-                        const serverName = guild ? guild.name : 'Your Server';
-                        await user.send(`☕ **Time for a break!**\nCompany: **${serverName}**\nYou have ${emp.quota_minutes} minutes. Enjoy your rest!\n---------------------------------------`);
+                        const serverName = guild ? guild.name : 'Your Company';
+                        
+                        const returnTimeMs = now.getTime() + (emp.quota_minutes * 60 * 1000);
+                        const returnDate = new Date(returnTimeMs);
+                        const options = { timeZone: 'Asia/Bangkok', hour12: false, hour: '2-digit', minute: '2-digit' };
+                        const returnTimeStr = new Intl.DateTimeFormat('en-US', options).format(returnDate);
+
+                        await user.send(`☕ **Time for a break!**\nCompany: **${serverName}**\nYou have ${emp.quota_minutes} minutes.\n⏳ Please return by **${returnTimeStr}**. Enjoy your rest!`);
                     } catch (err) {
                         console.log(`[Warning] Can't send DM to ${emp.discord_id}`);
                     }
