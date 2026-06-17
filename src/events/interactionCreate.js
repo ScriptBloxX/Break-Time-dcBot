@@ -4,7 +4,6 @@ const { fetchAqiData } = require('../utils/aqiHelper');
 module.exports = {
     name: Events.InteractionCreate,
     async execute(interaction, client) {
-
         if (interaction.isButton()) {
             
             if (interaction.customId.startsWith('aqi_tips_')) {
@@ -30,6 +29,8 @@ module.exports = {
 
                 try {
                     const aqiData = await fetchAqiData(location);
+                    const oldEmbed = interaction.message.embeds[0];
+                    const oldImageUrl = oldEmbed?.image?.url;
 
                     const newEmbed = new EmbedBuilder()
                         .setTitle(`🌤️ Air Quality in ${aqiData.cityName}`)
@@ -42,6 +43,8 @@ module.exports = {
                         )
                         .setFooter({ text: `Data provided by WAQI | Last updated: ${aqiData.updatedAt}` })
                         .setTimestamp();
+
+                    if (oldImageUrl) newEmbed.setImage(oldImageUrl);
 
                     return interaction.editReply({ embeds: [newEmbed], components: interaction.message.components });
 

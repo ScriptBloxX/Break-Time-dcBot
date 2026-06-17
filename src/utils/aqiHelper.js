@@ -20,13 +20,18 @@ async function fetchAqiData(location) {
         throw new Error('NOT_FOUND');
     }
 
+    const lat = (data.city && data.city.geo) ? data.city.geo[0] : null;
+    const lng = (data.city && data.city.geo) ? data.city.geo[1] : null;
+
     return {
         aqi: data.aqi,
         info: getAqiInfo(data.aqi),
         cityName: data.city.name,
         pm25: data.iaqi.pm25 ? data.iaqi.pm25.v : 'N/A',
         temp: data.iaqi.t ? `${data.iaqi.t.v}°C` : 'N/A',
-        updatedAt: data.time.s
+        updatedAt: data.time.s,
+        lat: lat,
+        lng: lng
     };
 }
 
