@@ -17,12 +17,13 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "deploy-gbcm" : "node test/deploy-commands.js",
-    "deploy-gcm" : "node test/deploy-guild.js",
-    "clear-gcm" : "node test/clear-guild.js"
+    "deploy-gbcm": "node test/deploy-commands.js",
+    "deploy-gcm": "node test/deploy-guild.js",
+    "clear-gcm": "node test/clear-guild.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.3",
+    "axios": "^1.18.0",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.1",
     "node-cron": "^3.0.3",
